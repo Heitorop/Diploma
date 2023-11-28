@@ -1,14 +1,27 @@
 <script setup>
+import { useDisplay } from "vuetify";
 import FirstSlide from "@/pages/FirstSection/FirstSection.vue";
 import AboutUs from "@/pages/AboutUs/AboutUs.vue";
 import "@/styles/main.scss";
+
+// HOOKS
+const { mobile } = useDisplay();
 
 // VARIABLES
 const icons = ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"];
 </script>
 
 <template>
-  <v-app theme="light">
+    <v-container fluid fill-height>
+      <v-app-bar
+        :elevation="0"
+        title="LOGO"
+        class="header"
+        :color="mobile ? 'blue-darken-4' : 'rgb(2, 22, 48)'"
+      >
+      </v-app-bar>
+    </v-container>
+
     <v-container fluid fill-height>
       <v-responsive class="align-center fill-height">
         <FirstSlide />
@@ -17,7 +30,7 @@ const icons = ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"];
       </v-responsive>
     </v-container>
     <v-footer class="d-flex flex-column">
-      <div class="bg-light-blue d-flex w-100 align-center justify-center px-4">
+      <div class="bg-black d-flex w-100 align-center justify-center px-4">
         <v-btn
           v-for="icon in icons"
           :key="icon"
@@ -32,7 +45,6 @@ const icons = ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"];
         {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
       </div>
     </v-footer>
-  </v-app>
 </template>
 
 <style scoped lang="scss">
@@ -42,10 +54,5 @@ const icons = ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"];
 .v-footer {
   padding: 0;
   justify-content: center;
-}
-
-.v-application {
-  color: white;
-  background-color: rgb(2, 22, 48);
 }
 </style>

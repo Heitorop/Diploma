@@ -1,3 +1,14 @@
+html {
+  scroll-behavior: smooth;
+}
 .v-container {
-    max-width: 1250px;
+  max-width: 1600px;
+}
+
+.header {
+  position: unset !important;
+
+  @include respond-to(mobile) {
+    position: sticky !important;
+  }
 }
