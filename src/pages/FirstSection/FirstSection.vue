@@ -1,8 +1,36 @@
 <script setup>
+import { ref, watch } from "vue";
 import { useDisplay } from "vuetify";
+import { usePoll } from "@/store/poll";
+import { useCommon } from "@/store/common";
+import UserPoll from "@/components/poll/UserPoll.vue";
 import "./index.scss";
 
+// HOOKS
 const { mobile } = useDisplay();
+
+// STORES
+const storeCommon = useCommon();
+const storePoll = usePoll();
+
+// STATES
+const loading = ref(false);
+
+watch(
+  () => loading.value,
+  (l) => {
+    if (!l) return;
+    setTimeout(() => {
+      loading.value = false;
+      storeCommon.$patch({ showModal: "test" });
+      storePoll.$patch({ stepTab: "step-0" });
+    }, 1000);
+  }
+);
+
+const showTest = () => {
+  loading.value = true;
+};
 </script>
 
 <template>
@@ -25,11 +53,9 @@ const { mobile } = useDisplay();
           <v-col cols="auto" class="btn-wrapper">
             <v-btn
               color="white"
-              href="https://vuetifyjs.com/introduction/why-vuetify/#feature-guides"
+              href="#aboutUs"
               min-width="228"
-              rel="noopener noreferrer"
               size="x-large"
-              target="_blank"
               variant="flat"
             >
               <v-icon icon="mdi-speedometer" size="large" start />
@@ -40,17 +66,29 @@ const { mobile } = useDisplay();
           <v-col cols="auto">
             <v-btn
               color="light-blue"
-              href="https://vuetifyjs.com/introduction/why-vuetify/#feature-guides"
               min-width="228"
-              rel="noopener noreferrer"
               size="x-large"
-              target="_blank"
               variant="flat"
+              :disabled="loading"
+              :loading="loading"
+              @click="showTest"
             >
               <v-icon icon="mdi-speedometer" size="large" start />
 
               Почнемо!
             </v-btn>
+            <v-dialog v-model="loading" :scrim="false" persistent width="auto">
+              <v-card color="primary">
+                <v-card-text>
+                  Please stand by
+                  <v-progress-linear
+                    indeterminate
+                    color="white"
+                    class="mb-0"
+                  ></v-progress-linear>
+                </v-card-text>
+              </v-card>
+            </v-dialog>
           </v-col>
         </v-row>
       </v-col>
@@ -59,12 +97,13 @@ const { mobile } = useDisplay();
       /></v-col>
     </v-row>
   </div>
+  <UserPoll />
 </template>
 
 <style scoped lang="scss">
 .first-section {
   h1 {
-    z-index: 1;
+    font-size: clamp(2.5rem, 3vw, 3.75rem);
   }
 }
 </style>

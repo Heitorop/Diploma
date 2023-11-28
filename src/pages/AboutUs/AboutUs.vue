@@ -7,13 +7,13 @@ const { mobile } = useDisplay();
 <template>
   <v-row>
     <v-col>
-      <h2 :class="['title text-h2 font-weight-bold text-center']">
+      <h2 id="aboutUs" :class="['title text-h2 font-weight-bold text-center']">
         {{ $t("aboutUs.title") }}
       </h2>
       <div :class="[mobile ? 'py-5' : 'py-14']" />
       <v-row :class="['d-flex align-center']">
         <v-col :cols="mobile ? 12 : 6"
-          ><v-img height="500" src="@/assets/slide2.jpg"
+          ><v-img :height="mobile ? 300 : 500" src="@/assets/slide2.jpg"
         /></v-col>
         <v-col
           :cols="mobile ? 12 : 6"
@@ -44,6 +44,7 @@ const { mobile } = useDisplay();
 <style scoped lang="scss">
 .title {
   margin-top: 40px;
+  font-size: clamp(2.5rem, 3vw, 3.75rem);
 }
 
 .description {
