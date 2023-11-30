@@ -26,24 +26,16 @@ const next = () => {
 
 <template>
   <div class="flex justify-center align-center">
-    <v-card :loading="loading" title="Card title" class="text-center">
-      <template v-slot:loader="{ isActive }">
-        <v-progress-linear
-          :active="isActive"
-          color="deep-purple"
-          height="4"
-          indeterminate
-        ></v-progress-linear>
-      </template>
+    <v-card title="Card title" class="text-center">
       <v-card-text class="text-center">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta, nihil
         maiores eveniet quas, tempore iure id corrupti placeat magni ipsum
         porro, odio similique incidunt alias. Minima quos voluptatum nam
         quisquam?
       </v-card-text>
-      <v-btn color="light-blue" min-width="228" size="default" @click="next">
+      <v-btn :loading="loading" color="light-blue" min-width="228" size="default" @click="next">
         <v-icon icon="mdi-speedometer" size="default" start />
-        Далі
+        {{ $t('continue') }}
       </v-btn>
     </v-card>
   </div>

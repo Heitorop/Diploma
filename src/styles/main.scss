@@ -1,8 +1,12 @@
+@import 'settings.scss';
+
 html {
   scroll-behavior: smooth;
 }
-.v-container {
-  max-width: 1600px;
+
+.v-application {
+  color: white;
+  background-color: rgb(2, 22, 48);
 }
 
 .header {

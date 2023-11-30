@@ -1,14 +1,13 @@
+<script setup>
+import MainPage from "./views/MainPage/MainPage.vue";
+import "@/styles/main.scss";
+
+</script>
+
 <template>
   <v-app theme="light">
-    <router-view />
+    <MainPage />
   </v-app>
 </template>
 
-<script setup></script>
-
-<style lang="scss">
-.v-application {
-  color: white;
-  background-color: rgb(2, 22, 48);
-}
-</style>
+<style lang="scss"></style>
