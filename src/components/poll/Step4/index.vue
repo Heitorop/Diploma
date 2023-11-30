@@ -3,6 +3,7 @@ import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
 import { usePoll } from "@/store/poll";
 import { useCommon } from "@/store/common";
+import BtnContBack from "@/layout/BtnContBack/index.vue";
 
 // ROUTES
 const $router = useRouter();
@@ -151,21 +152,7 @@ const pass = () => {
           <v-radio :label="$t('personal')" :value="0"></v-radio>
         </v-radio-group>
       </v-card-text>
-      <div class="btn-wrapper">
-        <v-btn color="light-blue" min-width="228" size="default" @click="prev">
-          <v-icon icon="mdi-speedometer" size="default" start />
-          Назад
-        </v-btn>
-        <v-btn
-          color="light-blue"
-          min-width="228"
-          size="default"
-          @click="pass()"
-        >
-          <v-icon icon="mdi-speedometer" size="default" start />
-          Завершити
-        </v-btn>
-      </div>
+      <BtnContBack :prev="prev" :next="pass" pass />
     </v-card>
   </div>
 </template>

@@ -1,6 +1,7 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { usePoll } from "@/store/poll";
+import BtnContBack from "@/layout/BtnContBack/index.vue";
 
 // STORES
 const storePoll = usePoll();
@@ -104,16 +105,7 @@ const next = () => {
           <v-radio :label="$t('no')" :value="1"></v-radio>
         </v-radio-group>
       </v-card-text>
-      <div class="btn-wrapper">
-        <v-btn color="light-blue" min-width="228" size="default" @click="prev">
-          <v-icon icon="mdi-speedometer" size="default" start />
-          Назад
-        </v-btn>
-        <v-btn color="light-blue" min-width="228" size="default" @click="next">
-          <v-icon icon="mdi-speedometer" size="default" start />
-          Далі
-        </v-btn>
-      </div>
+      <BtnContBack :prev="prev" :next="next" />
     </v-card>
   </div>
 </template>

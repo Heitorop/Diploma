@@ -1,61 +1,62 @@
 // Utilities
 import { defineStore } from "pinia";
+import { useLocalStorage } from "@vueuse/core";
 
 export const usePoll = defineStore("poll", {
   state: () => ({
     stepTab: "step-0",
     step1: {
-      r1: 1,
-      r2: 1,
-      r3: 1,
-      r4: 1,
-      r5: 1,
-      r6: 1,
-      r7: 1,
-      r8: 1,
-      r9: 1,
-      r10: 1,
+      r1: null,
+      r2: null,
+      r3: null,
+      r4: null,
+      r5: null,
+      r6: null,
+      r7: null,
+      r8: null,
+      r9: null,
+      r10: null,
     },
-    sum1: null,
+    sum1: useLocalStorage("sum1", 0),
     step2: {
-      r1: 1,
-      r2: 1,
-      r3: 1,
-      r4: 1,
-      r5: 1,
-      r6: 1,
-      r7: 1,
-      r8: 1,
-      r9: 1,
-      r10: 1,
+      r1: null,
+      r2: null,
+      r3: null,
+      r4: null,
+      r5: null,
+      r6: null,
+      r7: null,
+      r8: null,
+      r9: null,
+      r10: null,
     },
-    sum2: null,
+    sum2: useLocalStorage("sum2", 0),
     step3: {
-      r1: 1,
-      r2: 1,
-      r3: 1,
-      r4: 1,
-      r5: 1,
-      r6: 1,
-      r7: 1,
-      r8: 1,
-      r9: 1,
-      r10: 1,
+      r1: null,
+      r2: null,
+      r3: null,
+      r4: null,
+      r5: null,
+      r6: null,
+      r7: null,
+      r8: null,
+      r9: null,
+      r10: null,
     },
-    sum3: null,
+    sum3: useLocalStorage("sum3", 0),
     step4: {
-      r1: 1,
-      r2: 1,
-      r3: 1,
-      r4: 1,
-      r5: 1,
-      r6: 1,
-      r7: 1,
-      r8: 1,
-      r9: 1,
-      r10: 1,
+      r1: null,
+      r2: null,
+      r3: null,
+      r4: null,
+      r5: null,
+      r6: null,
+      r7: null,
+      r8: null,
+      r9: null,
+      r10: null,
     },
-    sum4: null,
+    sum4: useLocalStorage("sum4", 0),
   }),
   actions: {
     calculatePoll() {
@@ -81,7 +82,7 @@ export const usePoll = defineStore("poll", {
       }
     },
     clear() {
-      console.log('sdfdsf')
+      console.log("sdfdsf");
       let objectsArray = [this.step1, this.step2, this.step3, this.step4];
 
       for (var i = 0; i < objectsArray.length; i++) {
@@ -102,6 +103,6 @@ export const usePoll = defineStore("poll", {
           }
         }
       }
-    }
+    },
   },
 });
