@@ -26,7 +26,7 @@ const props = defineProps({
       icon="mdi-arrow-right"
       @click="props.next"
     />
-    <v-btn color="light-blue" size="default" @click="props.next"
+    <v-btn v-if="props.pass" color="light-blue" size="default" @click="props.next"
       >Завершити тест</v-btn
     >
   </div>
