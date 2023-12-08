@@ -7,7 +7,7 @@ import BtnContBack from "@/layout/BtnContBack/index.vue";
 const storePoll = usePoll();
 
 // STATES
-const { step3 } = storeToRefs(storePoll);
+const { step3,rule } = storeToRefs(storePoll);
 
 const prev = () => {
   storePoll.$patch({ stepTab: "step-2" });
@@ -27,6 +27,7 @@ const next = () => {
         </p>
         <v-radio-group
           v-model="step3.r1"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -40,6 +41,7 @@ const next = () => {
         </p>
         <v-radio-group
           v-model="step3.r2"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -51,6 +53,7 @@ const next = () => {
         </p>
         <v-radio-group
           v-model="step3.r3"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -62,6 +65,7 @@ const next = () => {
         </p>
         <v-radio-group
           v-model="step3.r4"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -81,6 +85,7 @@ const next = () => {
         </p>
         <v-radio-group
           v-model="step3.r5"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -92,6 +97,7 @@ const next = () => {
         </p>
         <v-radio-group
           v-model="step3.r6"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -103,6 +109,7 @@ const next = () => {
         </p>
         <v-radio-group
           v-model="step3.r7"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -114,6 +121,7 @@ const next = () => {
         </p>
         <v-radio-group
           v-model="step3.r8"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -127,6 +135,7 @@ const next = () => {
         </p>
         <v-radio-group
           v-model="step3.r9"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -138,6 +147,7 @@ const next = () => {
         </p>
         <v-radio-group
           v-model="step3.r10"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -145,7 +155,7 @@ const next = () => {
           <v-radio :label="$t('no')" :value="0"></v-radio>
         </v-radio-group>
       </v-card-text>
-      <BtnContBack :prev="prev" :next="next" />
+      <BtnContBack :prev="prev" :next="next" submit />
     </v-card>
   </div>
 </template>

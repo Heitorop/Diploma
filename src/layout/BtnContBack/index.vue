@@ -8,25 +8,27 @@ const props = defineProps({
   prev: PROPS_FUNCTION_DEFAULT,
   next: PROPS_FUNCTION_DEFAULT,
   pass: PROPS_BOOLEAN_DEFAULT,
+  submit: PROPS_BOOLEAN_DEFAULT,
 });
 </script>
 
 <template>
   <div class="btn-wrapper justify-space-between align-center">
     <v-btn
-      color="light-blue"
+      color="#6C757D"
       icon="mdi-arrow-left"
       size="default"
       @click="props.prev"
     />
     <v-btn
       v-if="!props.pass"
-      color="light-blue"
+      color="#6C757D"
       size="default"
       icon="mdi-arrow-right"
+      :type="submit && 'submit'"
       @click="props.next"
     />
-    <v-btn v-if="props.pass" color="light-blue" size="default" @click="props.next"
+    <v-btn v-if="props.pass" color="#6C757D" size="default" @click="props.next"
       >Завершити тест</v-btn
     >
   </div>

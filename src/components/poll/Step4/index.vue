@@ -1,32 +1,20 @@
 <script setup>
 import { storeToRefs } from "pinia";
-import { useRouter } from "vue-router";
 import { usePoll } from "@/store/poll";
-import { useCommon } from "@/store/common";
 import BtnContBack from "@/layout/BtnContBack/index.vue";
-
-// ROUTES
-const $router = useRouter();
 
 // STORES
 const storePoll = usePoll();
-const storeCommon = useCommon();
 
 // STATES
-const { step4 } = storeToRefs(storePoll);
-
-// ACTIONS
-const { calculatePoll, clear } = storePoll;
+const { step4, rule } = storeToRefs(storePoll);
 
 const prev = () => {
   storePoll.$patch({ stepTab: "step-3" });
 };
 
-const pass = () => {
-  $router.push({ name: "Conclusion" });
-  calculatePoll();
-  clear();
-  storeCommon.$patch({ showModal: "" });
+const next = () => {
+  storePoll.$patch({ stepTab: "step-5" });
 };
 </script>
 
@@ -39,6 +27,7 @@ const pass = () => {
         </p>
         <v-radio-group
           v-model="step4.r1"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -50,6 +39,7 @@ const pass = () => {
         </p>
         <v-radio-group
           v-model="step4.r2"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -61,6 +51,7 @@ const pass = () => {
         </p>
         <v-radio-group
           v-model="step4.r3"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -72,6 +63,7 @@ const pass = () => {
         </p>
         <v-radio-group
           v-model="step4.r4"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -84,6 +76,7 @@ const pass = () => {
         </p>
         <v-radio-group
           v-model="step4.r5"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -95,6 +88,7 @@ const pass = () => {
         </p>
         <v-radio-group
           v-model="step4.r6"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -108,6 +102,7 @@ const pass = () => {
         </p>
         <v-radio-group
           v-model="step4.r7"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -119,6 +114,7 @@ const pass = () => {
         </p>
         <v-radio-group
           v-model="step4.r8"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -130,6 +126,7 @@ const pass = () => {
         </p>
         <v-radio-group
           v-model="step4.r9"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -145,6 +142,7 @@ const pass = () => {
         </p>
         <v-radio-group
           v-model="step4.r10"
+          :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
@@ -152,7 +150,7 @@ const pass = () => {
           <v-radio :label="$t('personal')" :value="0"></v-radio>
         </v-radio-group>
       </v-card-text>
-      <BtnContBack :prev="prev" :next="pass" pass />
+      <BtnContBack :prev="prev" :next="next" submit />
     </v-card>
   </div>
 </template>

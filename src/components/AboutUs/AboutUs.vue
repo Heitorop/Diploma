@@ -7,9 +7,9 @@ const { mobile } = useDisplay();
 <template>
   <v-row>
     <v-col>
-      <h2 id="aboutUs" :class="['title text-h2 font-weight-bold text-center']">
+      <h1 id="aboutUs" :class="['title text-h2 font-weight-bold text-center']">
         {{ $t("aboutUs.title") }}
-      </h2>
+      </h1>
       <div :class="[mobile ? 'py-5' : 'py-14']" />
       <v-row :class="['d-flex align-center']">
         <v-col :cols="mobile ? 12 : 6"
