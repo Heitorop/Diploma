@@ -1,32 +1,43 @@
 <script setup>
 import { storeToRefs } from "pinia";
+import { useRouter } from "vue-router";
 import { usePoll } from "@/store/poll";
+import { useCommon } from "@/store/common";
 import BtnContBack from "@/layout/BtnContBack/index.vue";
+
+// ROUTES
+const $router = useRouter();
 
 // STORES
 const storePoll = usePoll();
+const storeCommon = useCommon();
 
 // STATES
-const { step2, rule } = storeToRefs(storePoll);
+const { step5, rule } = storeToRefs(storePoll);
+
+// ACTIONS
+const { calculatePoll } = storePoll;
 
 const prev = () => {
-  storePoll.$patch({ stepTab: "step-1" });
+  storePoll.$patch({ stepTab: "step-4" });
 };
 
-const next = () => {
-  storePoll.$patch({ stepTab: "step-3" });
+const pass = () => {
+  $router.push({ name: "Conclusion" });
+  calculatePoll();
+  storeCommon.$patch({ showModal: "" });
 };
 </script>
 
 <template>
   <div class="flex justify-center align-center">
-    <v-card :title="$t('counterparties.counterparties')">
+    <v-card :title="$t('documents.documents')">
       <v-card-text>
         <p>
-          {{ $t("counterparties.q1") }}
+          {{ $t("documents.q1") }}
         </p>
         <v-radio-group
-          v-model="step2.r1"
+          v-model="step5.r1"
           :rules="rule"
           inline
           style="justify-content: space-evenly"
@@ -35,10 +46,22 @@ const next = () => {
           <v-radio :label="$t('no')" :value="0"></v-radio>
         </v-radio-group>
         <p>
-          {{ $t("counterparties.q2") }}
+          {{ $t("documents.q2") }}
         </p>
         <v-radio-group
-          v-model="step2.r2"
+          v-model="step5.r2"
+          :rules="rule"
+          inline
+          style="justify-content: space-evenly"
+        >
+          <v-radio :label="$t('recordedActions')" :value="1"></v-radio>
+          <v-radio :label="$t('verbalWishes')" :value="0"></v-radio>
+        </v-radio-group>
+        <p>
+          {{ $t("documents.q3") }}
+        </p>
+        <v-radio-group
+          v-model="step5.r3"
           :rules="rule"
           inline
           style="justify-content: space-evenly"
@@ -47,73 +70,10 @@ const next = () => {
           <v-radio :label="$t('no')" :value="0"></v-radio>
         </v-radio-group>
         <p>
-          {{ $t("counterparties.q3") }}
+          {{ $t("documents.q4") }}
         </p>
         <v-radio-group
-          v-model="step2.r3"
-          :rules="rule"
-          inline
-          style="justify-content: space-evenly"
-        >
-          <v-radio :label="$t('repeatedly')" :value="1"></v-radio>
-          <v-radio :label="$t('once')" :value="0.5"></v-radio>
-          <v-radio :label="$t('never')" :value="0"></v-radio>
-        </v-radio-group>
-        <p>
-          {{ $t("counterparties.q4") }}
-        </p>
-        <v-radio-group
-          v-model="step2.r4"
-          :rules="rule"
-          inline
-          style="justify-content: space-evenly"
-        >
-          <v-radio :label="$t('yes')" :value="0"></v-radio>
-          <v-radio :label="$t('no')" :value="1"></v-radio>
-        </v-radio-group>
-        <p>
-          {{ $t("counterparties.q5") }}
-        </p>
-        <v-radio-group
-          v-model="step2.r5"
-          :rules="rule"
-          inline
-          style="justify-content: space-evenly"
-        >
-          <v-radio :label="$t('yes')" :value="0"></v-radio>
-          <v-radio :label="$t('no')" :value="1"></v-radio>
-        </v-radio-group>
-        <p>
-          {{ $t("counterparties.q6") }}
-        </p>
-        <v-radio-group
-          v-model="step2.r6"
-          :rules="rule"
-          inline
-          style="justify-content: space-evenly"
-        >
-          <v-radio :label="$t('repeatedly')" :value="1"></v-radio>
-          <v-radio :label="$t('once')" :value="0.5"></v-radio>
-          <v-radio :label="$t('never')" :value="0"></v-radio>
-        </v-radio-group>
-        <p>
-          {{ $t("counterparties.q7") }}
-        </p>
-        <v-radio-group
-          v-model="step2.r7"
-          :rules="rule"
-          inline
-          style="justify-content: space-evenly"
-        >
-          <v-radio :label="$t('repeatedly')" :value="1"></v-radio>
-          <v-radio :label="$t('once')" :value="0.5"></v-radio>
-          <v-radio :label="$t('never')" :value="0"></v-radio>
-        </v-radio-group>
-        <p>
-          {{ $t("counterparties.q8") }}
-        </p>
-        <v-radio-group
-          v-model="step2.r8"
+          v-model="step5.r4"
           :rules="rule"
           inline
           style="justify-content: space-evenly"
@@ -122,10 +82,60 @@ const next = () => {
           <v-radio :label="$t('no')" :value="0"></v-radio>
         </v-radio-group>
         <p>
-          {{ $t("counterparties.q9") }}
+          {{ $t("documents.q5") }}
         </p>
         <v-radio-group
-          v-model="step2.r9"
+          v-model="step5.r5"
+          :rules="rule"
+          inline
+          style="justify-content: space-evenly"
+        >
+          <v-radio :label="$t('digital')" :value="1"></v-radio>
+          <v-radio :label="$t('paper')" :value="0.25"></v-radio>
+          <v-radio :label="$t('mixed')" :value="0.5"></v-radio>
+        </v-radio-group>
+        <p>
+          {{ $t("documents.q6") }}
+        </p>
+        <v-radio-group
+          v-model="step5.r6"
+          :rules="rule"
+          inline
+          style="justify-content: space-evenly"
+        >
+          <v-radio :label="$t('yes')" :value="1"></v-radio>
+          <v-radio :label="$t('no')" :value="0"></v-radio>
+        </v-radio-group>
+        <p>
+          {{ $t("documents.q7") }}
+        </p>
+        <v-radio-group
+          v-model="step5.r7"
+          :rules="rule"
+          inline
+          style="justify-content: space-evenly"
+        >
+          <v-radio :label="$t('HighlevelSecrecy')" :value="1"></v-radio>
+          <v-radio :label="$t('MediumlevelSecrecy')" :value="0.5"></v-radio>
+          <v-radio :label="$t('LowLevelSecrecy')" :value="0"></v-radio>
+        </v-radio-group>
+        <p>
+          {{ $t("documents.q8") }}
+        </p>
+        <v-radio-group
+          v-model="step5.r8"
+          :rules="rule"
+          inline
+          style="justify-content: space-evenly"
+        >
+          <v-radio :label="$t('yes')" :value="1"></v-radio>
+          <v-radio :label="$t('no')" :value="0"></v-radio>
+        </v-radio-group>
+        <p>
+          {{ $t("documents.q9") }}
+        </p>
+        <v-radio-group
+          v-model="step5.r9"
           :rules="rule"
           inline
           style="justify-content: space-evenly"
@@ -134,19 +144,19 @@ const next = () => {
           <v-radio :label="$t('no')" :value="1"></v-radio>
         </v-radio-group>
         <p>
-          {{ $t("counterparties.q10") }}
+          {{ $t("documents.q10") }}
         </p>
         <v-radio-group
-          v-model="step2.r10"
+          v-model="step5.r10"
           :rules="rule"
           inline
           style="justify-content: space-evenly"
         >
-          <v-radio :label="$t('yes')" :value="0"></v-radio>
-          <v-radio :label="$t('no')" :value="1"></v-radio>
+          <v-radio :label="$t('yes')" :value="1"></v-radio>
+          <v-radio :label="$t('no')" :value="0"></v-radio>
         </v-radio-group>
       </v-card-text>
-      <BtnContBack :prev="prev" :next="next" submit />
+      <BtnContBack :prev="prev" :next="pass" submit />
     </v-card>
   </div>
 </template>

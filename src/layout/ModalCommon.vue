@@ -2,7 +2,7 @@
 import { storeToRefs } from "pinia";
 import { useDisplay } from "vuetify";
 import { useCommon } from "@/store/common";
-import { usePoll } from '@/store/poll';
+import { usePoll } from "@/store/poll";
 
 defineProps({
   width: { type: Number, default: 650 },
@@ -16,7 +16,7 @@ const { mobile } = useDisplay();
 
 // STORES
 const storeCommon = useCommon();
-const storePoll = usePoll
+const storePoll = usePoll();
 
 // STATES
 const { showModal } = storeToRefs(storeCommon);
@@ -26,9 +26,9 @@ const { clear } = storePoll;
 
 const hide = () => {
   if (showModal.value === "test") {
-    storeCommon.$patch({ showModal: "" });
     clear();
-  }else{
+    storeCommon.$patch({ showModal: "" });
+  } else {
     storeCommon.$patch({ showModal: "" });
   }
 };
@@ -42,9 +42,9 @@ const hide = () => {
     :model-value="showModal === id"
     :style="{ maxWidth: `${width}px` }"
   >
-    <v-card>
+    <v-card class="modal-common">
       <v-card-actions class="justify-end">
-        <v-btn color="primary" @click="hide">
+        <v-btn color="#990000" @click="hide">
           <v-icon icon="mdi-close"></v-icon>
         </v-btn>
       </v-card-actions>
@@ -61,6 +61,12 @@ const hide = () => {
   @include respond-to(mobile) {
     border-radius: 0;
     max-width: 100% !important;
+  }
+}
+
+.v-dialog {
+  .v-card {
+    background-color: #c0c0c0;
   }
 }
 </style>

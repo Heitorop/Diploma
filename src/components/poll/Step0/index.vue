@@ -33,8 +33,7 @@ const next = () => {
         porro, odio similique incidunt alias. Minima quos voluptatum nam
         quisquam?
       </v-card-text>
-      <v-btn :loading="loading" color="light-blue" min-width="228" size="default" @click="next">
-        <v-icon icon="mdi-speedometer" size="default" start />
+      <v-btn :loading="loading" color="#6C757D" min-width="228" size="default" @click="next" start>
         {{ $t('continue') }}
       </v-btn>
     </v-card>

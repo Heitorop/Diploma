@@ -1,14 +1,24 @@
 <script setup>
+import { usePoll } from "@/store/poll";
 import "./Styles.scss";
+
+// STORES
+const storePoll = usePoll();
+
+// ACTIONS
+const { clear } = storePoll;
+
 // VARIABLES
 const icons = ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"];
 </script>
 
 <template>
   <v-container fill-height>
-    <v-app-bar :elevation="2" class="header" color="blue-darken-4">
+    <v-app-bar :elevation="5" color="#1565C0" class="header">
       <router-link to="/">
-        <v-app-bar-title>BusinessAudit</v-app-bar-title>
+        <v-app-bar-title @click="clear(true, true, true)"
+          >BusinessAudit</v-app-bar-title
+        >
       </router-link>
     </v-app-bar>
   </v-container>
