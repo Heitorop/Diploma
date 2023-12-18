@@ -1,8 +1,6 @@
 @import 'settings.scss';
 
-html {
-  scroll-behavior: smooth;
-}
+
 
 
 .header {
@@ -11,4 +9,8 @@ html {
   @include respond-to(mobile) {
     position: sticky !important;
   }
+}
+
+.apexcharts-legend{
+  display: none !important;
 }

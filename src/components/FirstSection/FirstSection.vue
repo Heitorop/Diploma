@@ -13,6 +13,9 @@ const { mobile } = useDisplay();
 const storeCommon = useCommon();
 const storePoll = usePoll();
 
+// ACTIONS
+const { clear } = storePoll;
+
 // STATES
 const loading = ref(false);
 
@@ -29,6 +32,7 @@ watch(
 );
 
 const showTest = () => {
+  clear(true,true,true);
   loading.value = true;
 };
 </script>
@@ -38,15 +42,15 @@ const showTest = () => {
     <v-row align="center">
       <v-col :cols="mobile ? 12 : 6">
         <h1
-          :class="['title text-h2 font-weight-bold', mobile && 'text-center']"
+          :class="['title text-h3 font-weight-bold', mobile && 'text-center']"
         >
           {{ $t("slide1.title") }}
         </h1>
 
         <div :class="[mobile ? 'py-5' : 'py-14']" />
         <v-row>
-          <v-col v-show="mobile"
-            ><v-img height="300" src="@/assets/slide1.png"
+          <v-col v-show="mobile" :class="['justify-center', mobile && 'd-flex']"
+            ><img height="300" src="@/assets/slide1.png"
           /></v-col>
         </v-row>
         <v-row :class="['d-flex align-center', mobile && 'justify-center']">
@@ -80,20 +84,21 @@ const showTest = () => {
             <v-dialog v-model="loading" :scrim="false" persistent width="auto">
               <v-card color="primary">
                 <v-card-text>
-                  Please stand by
-                  <v-progress-linear
+                  <v-progress-circular
                     indeterminate
-                    color="white"
-                    class="mb-0"
-                  ></v-progress-linear>
+                    model-value="20"
+                  ></v-progress-circular>
                 </v-card-text>
               </v-card>
             </v-dialog>
           </v-col>
         </v-row>
       </v-col>
-      <v-col cols="6" v-show="!mobile"
-        ><v-img height="500" src="@/assets/slide1.png"
+      <v-col
+        cols="6"
+        v-show="!mobile"
+        :class="['justify-end', !mobile && 'd-flex']"
+        ><img height="400" src="@/assets/slide1.png"
       /></v-col>
     </v-row>
   </div>
@@ -102,6 +107,8 @@ const showTest = () => {
 
 <style scoped lang="scss">
 .first-section {
+  height: 100%;
+  display: flex;
   h1 {
     font-size: clamp(2.5rem, 3vw, 3.75rem);
   }

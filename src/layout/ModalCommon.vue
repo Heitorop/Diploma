@@ -5,28 +5,28 @@ import { useCommon } from "@/store/common";
 import { usePoll } from "@/store/poll";
 
 defineProps({
-  width: { type: Number, default: 650 },
+  width: { type: String, default: "650px" },
   id: String,
   persistent: Boolean,
   scrollable: Boolean,
 });
 
 // HOOKS
-const { mobile } = useDisplay();
+const { xs } = useDisplay();
 
 // STORES
 const storeCommon = useCommon();
 const storePoll = usePoll();
 
 // STATES
-const { showModal } = storeToRefs(storeCommon);
+const { showModal, fullscreen } = storeToRefs(storeCommon);
 
 // ACTIONS
 const { clear } = storePoll;
 
 const hide = () => {
   if (showModal.value === "test") {
-    clear();
+    clear(false, false, true);
     storeCommon.$patch({ showModal: "" });
   } else {
     storeCommon.$patch({ showModal: "" });
@@ -37,10 +37,10 @@ const hide = () => {
 <template>
   <v-dialog
     :persistent="persistent"
-    :fullscreen="mobile"
+    :fullscreen="xs || fullscreen"
     :scrollable="scrollable"
     :model-value="showModal === id"
-    :style="{ maxWidth: `${width}px` }"
+    :style="{ maxWidth: `${width}` }"
   >
     <v-card class="modal-common">
       <v-card-actions class="justify-end">

@@ -7,7 +7,7 @@ import BtnContBack from "@/layout/BtnContBack/index.vue";
 const storePoll = usePoll();
 
 // STATES
-const { step1 } = storeToRefs(storePoll);
+const { step1, beforeSum1 } = storeToRefs(storePoll);
 
 const prev = () => {
   storePoll.$patch({ stepTab: "step-1" });
@@ -21,7 +21,7 @@ const next = () => {
 <template>
   <div class="flex justify-center align-center">
     <v-card :title="$t('staff.staff')">
-      <v-card-text>
+      <v-card-text v-if="beforeSum1 < 6">
         <p>
           {{ $t("buying.staff.q1") }}
         </p>
@@ -63,6 +63,11 @@ const next = () => {
         </p>
         <v-switch v-model="step1.r10" color="#00796B" :value="0.25" />
       </v-card-text>
+      <v-card-text v-else
+        ><p class="high-defence-text">
+          <b>{{ $t("highLevelDefence") }}</b>
+        </p></v-card-text
+      >
       <BtnContBack :prev="prev" :next="next" />
     </v-card>
   </div>

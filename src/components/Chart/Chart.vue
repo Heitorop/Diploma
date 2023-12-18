@@ -1,6 +1,14 @@
 <script setup>
+import { useDisplay } from "vuetify";
 import { usePoll } from "@/store/poll";
 import { storeToRefs } from "pinia";
+import { PROPS_BOOLEAN_DEFAULT } from "@/constants/index.js";
+
+const props = defineProps({
+  showAfter: PROPS_BOOLEAN_DEFAULT,
+});
+// HOOKS
+const { xs, sm } = useDisplay();
 
 // STORES
 const storePoll = usePoll();
@@ -17,12 +25,11 @@ const {
   afterSum3,
   afterSum4,
   afterSum5,
-  showAfter,
 } = storeToRefs(storePoll);
 
 const series1 = [
   {
-    name: "Before",
+    name: "",
     data: [
       beforeSum1.value,
       beforeSum2.value,
@@ -35,7 +42,7 @@ const series1 = [
 
 const series2 = [
   {
-    name: "Before",
+    name: "",
     data: [
       beforeSum1.value,
       beforeSum2.value,
@@ -45,7 +52,7 @@ const series2 = [
     ],
   },
   {
-    name: "After",
+    name: "",
     data: [
       afterSum1.value,
       afterSum2.value,
@@ -82,16 +89,16 @@ const chartOptions = {
     },
   },
   chart: {
-    height: "350",
     type: "radar",
+    background: "#001F3F",
   },
   xaxis: {
     categories: [
-      "Кадры",
-      "Работа с контрагентами",
-      "Физ защита и ТСО",
+      "Кадри",
+      "Робота з контрагентами",
+      "Фіз захист та ТЗО",
       "IT",
-      "ПД",
+      "Документи",
     ],
   },
   yaxis: {
@@ -107,9 +114,9 @@ const chartOptions = {
 <template>
   <div id="chart">
     <apexchart
-      height="600"
+      :height="sm || xs ? '380' : '600'"
       :options="chartOptions"
-      :series="showAfter ? series2 : series1"
+      :series="props.showAfter ? series2 : series1"
     ></apexchart>
   </div>
 </template>

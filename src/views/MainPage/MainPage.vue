@@ -1,50 +1,37 @@
 <script setup>
-import { usePoll } from "@/store/poll";
+import { useRoute } from "vue-router";
 import "./Styles.scss";
 
-// STORES
-const storePoll = usePoll();
-
-// ACTIONS
-const { clear } = storePoll;
-
-// VARIABLES
-const icons = ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"];
+const $route = useRoute();
 </script>
 
 <template>
   <v-container fill-height>
     <v-app-bar :elevation="5" color="#1565C0" class="header">
       <router-link to="/">
-        <v-app-bar-title @click="clear(true, true, true)"
-          >BusinessAudit</v-app-bar-title
-        >
+        <v-app-bar-title>{{
+          $route.name === "Conclusion"
+            ? "На головну"
+            : "Аудит стану інформаційної безпеки"
+        }}</v-app-bar-title>
       </router-link>
     </v-app-bar>
+    <router-view />
+    <v-footer class="d-flex flex-column" color="#001F3F">
+      <div class="px-4 py-4 text-center w-100">
+        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+      </div>
+    </v-footer>
   </v-container>
-  <router-view />
-  <v-footer class="d-flex flex-column">
-    <div class="bg-black d-flex w-100 align-center justify-center px-4">
-      <v-btn
-        v-for="icon in icons"
-        :key="icon"
-        class="mx-4"
-        :icon="icon"
-        variant="plain"
-        size="small"
-      ></v-btn>
-    </div>
-
-    <div class="px-4 py-2 bg-black text-center w-100">
-      {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
-    </div>
-  </v-footer>
 </template>
 
 <style scoped lang="scss">
 .v-container {
   max-width: 1600px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .v-footer {
   padding: 0;

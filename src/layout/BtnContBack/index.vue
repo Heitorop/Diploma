@@ -24,10 +24,15 @@ const props = defineProps({
       v-if="!props.pass"
       color="#6C757D"
       size="default"
-      icon="mdi-arrow-right"
+      icon
       :type="submit && 'submit'"
       @click="props.next"
-    />
+      ><v-icon icon="mdi-arrow-right" /><v-tooltip
+        activator="parent"
+        location="top"
+        >Далі</v-tooltip
+      ></v-btn
+    >
     <v-btn v-if="props.pass" color="#6C757D" size="default" @click="props.next"
       >Завершити тест</v-btn
     >
