@@ -19,7 +19,7 @@ const $route = useRoute();
     <router-view />
     <v-footer class="d-flex flex-column" color="#001F3F">
       <div class="px-4 py-4 text-center w-100">
-        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+        {{ new Date().getFullYear() }}
       </div>
     </v-footer>
   </v-container>

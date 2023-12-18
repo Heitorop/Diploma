@@ -108,13 +108,12 @@ export const usePoll = defineStore("poll", {
         this.step5,
       ];
 
-      this.afterSum1 = this.beforeSum1;
-      this.afterSum2 = this.beforeSum2;
-      this.afterSum3 = this.beforeSum3;
-      this.afterSum4 = this.beforeSum4;
-      this.afterSum5 = this.beforeSum5;
-
       if (buy) {
+        this.afterSum1 = this.beforeSum1;
+        this.afterSum2 = this.beforeSum2;
+        this.afterSum3 = this.beforeSum3;
+        this.afterSum4 = this.beforeSum4;
+        this.afterSum5 = this.beforeSum5;
         for (let i = 0; i < objectsArray.length; i++) {
           for (let key in objectsArray[i]) {
             switch (i) {

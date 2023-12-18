@@ -1,8 +1,5 @@
 @import 'settings.scss';
 
-
-
-
 .header {
   position: unset !important;
 
@@ -11,6 +8,7 @@
   }
 }
 
-.apexcharts-legend{
+.apexcharts-legend,
+.apexcharts-toolbar {
   display: none !important;
 }

@@ -31,7 +31,7 @@ watch(
 );
 
 const showTest = () => {
-  clear(false, true);
+  clear(false, true, true);
   loading.value = true;
 };
 </script>
@@ -61,8 +61,8 @@ const showTest = () => {
       <v-col>
         <Chart :showAfter="showAfter" />
         <div style="display: flex; justify-content: center">
-      <Info />
-    </div>
+          <Info />
+        </div>
       </v-col>
     </v-row>
   </v-container>
