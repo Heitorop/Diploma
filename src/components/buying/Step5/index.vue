@@ -9,7 +9,7 @@ const storePoll = usePoll();
 const storeCommon = useCommon();
 
 // STATES
-const { step5 } = storeToRefs(storePoll);
+const { step5, beforeSum5 } = storeToRefs(storePoll);
 
 // ACTIONS
 const { calculatePoll } = storePoll;
@@ -28,7 +28,7 @@ const pass = () => {
 <template>
   <div class="flex justify-center align-center">
     <v-card :title="$t('documents.documents')">
-      <v-card-text>
+      <v-card-text v-if="beforeSum5 < 6">
         <p>
           {{ $t("buying.documents.q1") }}
         </p>
@@ -70,6 +70,11 @@ const pass = () => {
         </p>
         <v-switch v-model="step5.r10" color="#00796B" :value="0.25" />
       </v-card-text>
+      <v-card-text v-else
+        ><p class="high-defence-text">
+          <b>{{ $t("highLevelDefence") }}</b>
+        </p></v-card-text
+      >
       <BtnContBack :prev="prev" :next="pass" />
     </v-card>
   </div>

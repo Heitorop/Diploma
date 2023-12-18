@@ -5,6 +5,7 @@ import { useCommon } from "@/store/common";
 import { usePoll } from "@/store/poll";
 import Chart from "@/components/Chart/Chart.vue";
 import Buying from "@/components/buying/Buying.vue";
+import Info from "@/components/Info/index.vue";
 
 // STORES
 const storeCommon = useCommon();
@@ -14,19 +15,23 @@ const storePoll = usePoll();
 const { showAfter } = storeToRefs(storePoll);
 const loading = ref(false);
 
+// ACTIONS
+const { clear } = storePoll;
+
 watch(
   () => loading.value,
   (l) => {
     if (!l) return;
     setTimeout(() => {
       loading.value = false;
-      storeCommon.$patch({ showModal: "buying" });
+      storeCommon.$patch({ showModal: "buying", fullscreen: true });
       storePoll.$patch({ stepTab: "step-1" });
     }, 1000);
   }
 );
 
 const showTest = () => {
+  clear(false, true);
   loading.value = true;
 };
 </script>
@@ -34,22 +39,11 @@ const showTest = () => {
 <template>
   <v-container fill-height>
     <Chart />
-    <v-divider></v-divider>
-    <v-row
-      ><v-col
-        ><h1 :class="['title text-h2 font-weight-bold text-center']">
-          Пояснення ,шо надо зробити ,щоб підняти захист
-        </h1></v-col
-      ></v-row
-    >
+    <div style="display: flex; justify-content: center">
+      <Info />
+    </div>
     <v-row>
-      <v-col>
-        <div class="">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-          doloremque, ipsam consequatur optio molestias dolores excepturi quia
-          itaque nesciunt cupiditate vero tempore reiciendis voluptate, eaque
-          dignissimos atque sint autem rem!
-        </div>
+      <v-col align="center">
         <v-btn
           :loading="loading"
           color="#6C757D"
@@ -65,7 +59,10 @@ const showTest = () => {
     </v-row>
     <v-row v-if="showAfter">
       <v-col>
-        <Chart />
+        <Chart :showAfter="showAfter" />
+        <div style="display: flex; justify-content: center">
+      <Info />
+    </div>
       </v-col>
     </v-row>
   </v-container>

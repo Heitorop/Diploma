@@ -26,15 +26,19 @@ const next = () => {
 
 <template>
   <div class="flex justify-center align-center">
-    <v-card title="Card title" class="text-center">
+    <v-card class="text-center">
       <v-card-text class="text-center">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta, nihil
-        maiores eveniet quas, tempore iure id corrupti placeat magni ipsum
-        porro, odio similique incidunt alias. Minima quos voluptatum nam
-        quisquam?
+        {{ $t("startSlideText") }}
       </v-card-text>
-      <v-btn :loading="loading" color="#6C757D" min-width="228" size="default" @click="next" start>
-        {{ $t('continue') }}
+      <v-btn
+        :loading="loading"
+        color="#6C757D"
+        min-width="228"
+        size="default"
+        @click="next"
+        start
+      >
+        {{ $t("continue") }}
       </v-btn>
     </v-card>
   </div>

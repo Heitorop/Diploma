@@ -108,13 +108,18 @@ export const usePoll = defineStore("poll", {
         this.step5,
       ];
 
+      this.afterSum1 = this.beforeSum1;
+      this.afterSum2 = this.beforeSum2;
+      this.afterSum3 = this.beforeSum3;
+      this.afterSum4 = this.beforeSum4;
+      this.afterSum5 = this.beforeSum5;
+
       if (buy) {
         for (let i = 0; i < objectsArray.length; i++) {
           for (let key in objectsArray[i]) {
             switch (i) {
               case 0:
                 this.afterSum1 += objectsArray[i][key];
-                console.log(objectsArray[i][key]);
                 break;
               case 1:
                 this.afterSum2 += objectsArray[i][key];
@@ -149,7 +154,6 @@ export const usePoll = defineStore("poll", {
                 break;
               case 4:
                 this.beforeSum5 += objectsArray[i][key];
-                console.log(objectsArray[i][key]);
                 break;
             }
           }
@@ -157,7 +161,6 @@ export const usePoll = defineStore("poll", {
       }
     },
     clear(sum = false, buy = false, all = false) {
-      console.log('sdfsdfs')
       let objectsArray = [
         this.step1,
         this.step2,
@@ -171,26 +174,17 @@ export const usePoll = defineStore("poll", {
         this.beforeSum3 = 0;
         this.beforeSum4 = 0;
         this.beforeSum5 = 0;
-        if (buy) {
+      }
+      if (buy) {
           this.afterSum1 = 0;
           this.afterSum2 = 0;
           this.afterSum3 = 0;
           this.afterSum4 = 0;
           this.afterSum5 = 0;
         }
-      }
+      
 
       if (all) {
-        this.beforeSum1 = 0;
-        this.beforeSum2 = 0;
-        this.beforeSum3 = 0;
-        this.beforeSum4 = 0;
-        this.beforeSum5 = 0;
-        this.afterSum1 = 0;
-        this.afterSum2 = 0;
-        this.afterSum3 = 0;
-        this.afterSum4 = 0;
-        this.afterSum5 = 0;
 
         for (var i = 0; i < objectsArray.length; i++) {
           for (var key in objectsArray[i]) {
