@@ -32,7 +32,7 @@ watch(
 );
 
 const showTest = () => {
-  clear(true,true,true);
+  clear(true, true, true);
   loading.value = true;
 };
 </script>
@@ -54,19 +54,6 @@ const showTest = () => {
           /></v-col>
         </v-row>
         <v-row :class="['d-flex align-center', mobile && 'justify-center']">
-          <v-col cols="auto" class="btn-wrapper">
-            <v-btn
-              color="white"
-              href="#aboutUs"
-              min-width="228"
-              size="x-large"
-              variant="flat"
-            >
-              <v-icon icon="mdi-speedometer" size="large" start />
-
-              Про нас
-            </v-btn>
-          </v-col>
           <v-col cols="auto">
             <v-btn
               color="light-blue"

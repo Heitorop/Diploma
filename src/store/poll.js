@@ -176,16 +176,14 @@ export const usePoll = defineStore("poll", {
         this.beforeSum5 = 0;
       }
       if (buy) {
-          this.afterSum1 = 0;
-          this.afterSum2 = 0;
-          this.afterSum3 = 0;
-          this.afterSum4 = 0;
-          this.afterSum5 = 0;
-        }
-      
+        this.afterSum1 = 0;
+        this.afterSum2 = 0;
+        this.afterSum3 = 0;
+        this.afterSum4 = 0;
+        this.afterSum5 = 0;
+      }
 
       if (all) {
-
         for (var i = 0; i < objectsArray.length; i++) {
           for (var key in objectsArray[i]) {
             switch (i) {

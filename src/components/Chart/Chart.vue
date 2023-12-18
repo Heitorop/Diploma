@@ -54,11 +54,11 @@ const series2 = [
   {
     name: "",
     data: [
-      afterSum1.value,
-      afterSum2.value,
-      afterSum3.value,
-      afterSum4.value,
-      afterSum5.value,
+      afterSum1.value.toFixed(2),
+      afterSum2.value.toFixed(2),
+      afterSum3.value.toFixed(2),
+      afterSum4.value.toFixed(2),
+      afterSum5.value.toFixed(2),
     ],
   },
 ];
