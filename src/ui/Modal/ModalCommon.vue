@@ -66,7 +66,6 @@ const hide = () => {
 
 .v-dialog {
   .v-card {
-    background-color: #c0c0c0;
   }
 }
 </style>

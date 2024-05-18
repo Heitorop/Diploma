@@ -90,7 +90,12 @@ const chartOptions = {
   },
   chart: {
     type: "radar",
-    background: "#001F3F",
+    dropShadow: {
+      enabled: true,
+      blur: 1,
+      left: 1,
+      top: 1,
+    }
   },
   xaxis: {
     categories: [
@@ -104,6 +109,7 @@ const chartOptions = {
   yaxis: {
     min: 0,
     max: 10,
+    tickAmount: 10,
   },
   markers: {
     size: 0,
@@ -113,11 +119,8 @@ const chartOptions = {
 
 <template>
   <div id="chart">
-    <apexchart
-      :height="sm || xs ? '380' : '600'"
-      :options="chartOptions"
-      :series="props.showAfter ? series2 : series1"
-    ></apexchart>
+    <apexchart :height="sm || xs ? '380' : '600'" :options="chartOptions" :series="props.showAfter ? series2 : series1">
+    </apexchart>
   </div>
 </template>
 

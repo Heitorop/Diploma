@@ -15,14 +15,14 @@ const props = defineProps({
 <template>
   <div class="btn-wrapper justify-space-between align-center">
     <v-btn
-      color="#6C757D"
+      color="#000000"
       icon="mdi-arrow-left"
       size="default"
       @click="props.prev"
     />
     <v-btn
       v-if="!props.pass"
-      color="#6C757D"
+      color="#000000"
       size="default"
       icon
       :type="submit && 'submit'"
@@ -33,7 +33,7 @@ const props = defineProps({
         >Далі</v-tooltip
       ></v-btn
     >
-    <v-btn v-if="props.pass" color="#6C757D" size="default" @click="props.next"
+    <v-btn v-if="props.pass" color="#000000" size="default" @click="props.next"
       >Завершити тест</v-btn
     >
   </div>

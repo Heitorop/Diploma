@@ -1,10 +1,21 @@
 .btn-wrapper {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .v-card {
-    .v-container {
-        padding-top: 0;
+  .v-container {
+    padding-top: 0;
+
+    .v-radio-group .v-input__details {
+       margin-top: -5px;
     }
+
+    .v-selection-control{
+        .v-label{
+            color: #000000;
+            font-weight: 500;
+        }
+    }
+  }
 }

@@ -1,13 +1,9 @@
 <script setup>
 import { ref, watch } from "vue";
-// import { useDisplay } from "vuetify";
 import { usePoll } from "@/store/poll";
 import { useCommon } from "@/store/common";
 import UserPoll from "@/components/poll/UserPoll.vue";
 import BImage from "@/assets/small-business.webp";
-
-// HOOKS
-// const { mobile } = useDisplay();
 
 // STORES
 const storeCommon = useCommon();

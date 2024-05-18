@@ -32,7 +32,7 @@ const next = () => {
       </v-card-text>
       <v-btn
         :loading="loading"
-        color="#6C757D"
+        color="#000000"
         min-width="228"
         size="default"
         @click="next"
