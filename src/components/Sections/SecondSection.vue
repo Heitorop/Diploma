@@ -2,9 +2,11 @@
     <v-row class="d-flex align-center justify-center my-md-10 my-sm-5 my-xs-12">
         <v-col cols="auto" class="">
             <h1>Our Core Features</h1>
-            <p class="mt-md-2 mb-md-5 mt-sm-2 mb-sm-2 mb-2">Dive into the innovative features that make SecureAudit Pro the go-to for
+            <p class="mt-md-2 mb-md-5 mt-sm-2 mb-sm-2 mb-2">Dive into the innovative features that make SecureAudit Pro
+                the go-to for
                 businesses seeking bulletproof cyber security.</p>
-            <div class="w-100 d-flex flex-sm-row flex-column justify-space-between align-center gc-5 gr-5 mt-md-8 mt-5">
+            <div
+                class="w-100 d-flex flex-sm-row flex-column justify-space-between  align-center gc-5 gr-5 mt-md-8 mt-5">
                 <div class="feature-block  pa-4 d-flex flex-column align-center">
                     <v-icon color="#cdcdcd" size="40" icon="mdi-fire" />
                     <h1>24/7 Monitoring</h1>
@@ -48,6 +50,7 @@ p {
 
 .feature-block {
     width: 100%;
+    min-height: 205px;
     background-color: #000000;
     border-radius: 16px;
     color: #ffffff;

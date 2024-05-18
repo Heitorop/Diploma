@@ -5,7 +5,7 @@
             <p class="mt-md-2 mb-md-5 mt-sm-2 mb-sm-2 mb-2">Get answers to common questions about cybersecurity audits
                 and how SecureAudit
                 safeguards your business.</p>
-            <div class="mt-md-8 mt-4 block-wrapper d-flex flex-md-row flex-column justify-space-between align-center">
+            <div class="mt-md-8 mt-4 block-wrapper d-flex flex-md-row flex-column justify-space-between align-center gr-3">
                 <div class="d-flex flex-column gr-3">
                     <div>
                         <h1>What is a cybersecurity audit?
@@ -86,7 +86,6 @@ p {
     .block-wrapper {
         div {
             max-width: none;
-
         }
     }
 }
