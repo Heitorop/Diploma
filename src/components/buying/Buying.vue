@@ -1,7 +1,7 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { usePoll } from "@/store/poll";
-import ModalCommon from "@/layout/ModalCommon.vue";
+import ModalCommon from "@/ui/Modal/ModalCommon.vue";
 import Step1 from "@/components/buying/Step1/index.vue";
 import Step2 from "@/components/buying/Step2/index.vue";
 import Step3 from "@/components/buying/Step3/index.vue";

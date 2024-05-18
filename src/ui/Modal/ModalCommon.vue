@@ -58,7 +58,7 @@ const hide = () => {
   margin: auto;
   border-radius: 20px;
   width: 100%;
-  @include respond-to(mobile) {
+  @include mq("mobile") {
     border-radius: 0;
     max-width: 100% !important;
   }

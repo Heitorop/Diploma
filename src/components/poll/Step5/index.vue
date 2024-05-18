@@ -3,7 +3,7 @@ import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
 import { usePoll } from "@/store/poll";
 import { useCommon } from "@/store/common";
-import BtnContBack from "@/layout/BtnContBack/index.vue";
+import BtnContBack from "@/ui/BtnContBack/index.vue";
 
 // ROUTES
 const $router = useRouter();

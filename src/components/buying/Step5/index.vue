@@ -2,7 +2,7 @@
 import { storeToRefs } from "pinia";
 import { usePoll } from "@/store/poll";
 import { useCommon } from "@/store/common";
-import BtnContBack from "@/layout/BtnContBack/index.vue";
+import BtnContBack from "@/ui/BtnContBack/index.vue";
 
 // STORES
 const storePoll = usePoll();

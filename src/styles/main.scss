@@ -3,7 +3,7 @@
 .header {
   position: unset !important;
 
-  @include respond-to(mobile) {
+  @include mq("mobile") {
     position: sticky !important;
   }
 }

@@ -1,7 +1,7 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { usePoll } from "@/store/poll";
-import BtnContBack from "@/layout/BtnContBack/index.vue";
+import BtnContBack from "@/ui/BtnContBack/index.vue";
 import { ref } from "vue";
 
 // STORES
