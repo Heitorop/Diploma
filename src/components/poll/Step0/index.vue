@@ -25,21 +25,32 @@ const next = () => {
 </script>
 
 <template>
-  <div class="flex justify-center align-center">
-    <v-card class="text-center">
+  <div class="step-0 h-100">
+    <v-card class="text-center h-100">
       <v-card-text class="text-center">
         {{ $t("startSlideText") }}
       </v-card-text>
-      <v-btn
-        :loading="loading"
-        color="#000000"
-        min-width="228"
-        size="default"
-        @click="next"
-        start
-      >
+      <v-btn :loading="loading" color="#000000" min-width="228" size="default" @click="next" start>
         {{ $t("continue") }}
       </v-btn>
     </v-card>
   </div>
 </template>
+
+<style lang="scss">
+@import '@/styles/mixins';
+
+.step-0 {
+  @include mq('mobile') {
+    .v-card {
+      display: flex;
+      flex-direction: column;
+
+      &-text {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+</style>

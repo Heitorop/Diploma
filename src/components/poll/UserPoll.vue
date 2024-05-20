@@ -19,9 +19,9 @@ const { stepTab } = storeToRefs(storePoll);
 
 <template>
   <ModalCommon id="test" persistent>
-    <v-window v-model="stepTab">
-      <v-window-item value="step-0">
-        <Step0 />
+    <v-window v-model="stepTab" class="h-100">
+      <v-window-item value="step-0" class="h-100">
+        <Step0/>
       </v-window-item>
       <v-window-item value="step-1">
         <div class="wrap-step q-px-md">

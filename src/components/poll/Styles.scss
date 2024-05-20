@@ -6,16 +6,18 @@
 .v-card {
   .v-container {
     padding-top: 0;
+    height: 100%;
 
     .v-radio-group .v-input__details {
-       margin-top: -5px;
+      margin-top: -5px;
     }
 
-    .v-selection-control{
-        .v-label{
-            color: #000000;
-            font-weight: 500;
-        }
+    .v-selection-control {
+      .v-label {
+        color: #000000;
+        font-weight: 500;
+      }
     }
+
   }
 }
